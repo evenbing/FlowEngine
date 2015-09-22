@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{046F4EF7-6202-4B2E-975B-AAAC4CE61E8E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FlowEngine</RootNamespace>
+    <AssemblyName>FlowEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Basic\BasicData.cs" />
+    <Compile Include="Data\IData.cs" />
+    <Compile Include="Data\IDataCursor.cs" />
+    <Compile Include="Data\IDataFactory.cs" />
+    <Compile Include="Data\IDataUtil.cs" />
+    <Compile Include="NS\NSField.cs" />
+    <Compile Include="NS\NSNode.cs" />
+    <Compile Include="NS\WmPathInfo.cs" />
+    <Compile Include="Util\List.cs" />
+    <Compile Include="Util\ListEnumerator.cs" />
+    <Compile Include="Util\Pluggable\WmIDataList.cs" />
+    <Compile Include="Flow\FlowElement.cs" />
+    <Compile Include="Flow\FlowExceptionHandler.cs" />
+    <Compile Include="Flow\FlowExit.cs" />
+    <Compile Include="Flow\FlowSequence.cs" />
+    <Compile Include="Flow\FlowState.cs" />
+    <Compile Include="Flow\Map\IDataWmPathProcessor.cs" />
+    <Compile Include="Flow\Map\MapSet.cs" />
+    <Compile Include="Flow\Map\MapWmPathInfo.cs" />
+    <Compile Include="NS\WmPathItem.cs" />
+    <Compile Include="Test\HelloWorld.cs" />
+    <Compile Include="Util\StringParser.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
