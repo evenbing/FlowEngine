@@ -45,7 +45,11 @@
     <Compile Include="Data\IDataFactory.cs" />
     <Compile Include="Data\IDataUtil.cs" />
     <Compile Include="NS\NSField.cs" />
+    <Compile Include="NS\NSName.cs" />
+    <Compile Include="NS\Namespace.cs" />
+    <Compile Include="NS\NSType.cs" />
     <Compile Include="NS\NSNode.cs" />
+    <Compile Include="NS\NSService.cs" />
     <Compile Include="NS\WmPathInfo.cs" />
     <Compile Include="Util\List.cs" />
     <Compile Include="Util\ListEnumerator.cs" />

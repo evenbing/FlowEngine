@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace FlowEngine.NS
 {
-    abstract class NSNode
+    public abstract class NSNode
     {
+        public static NSType NODE_UNKNOWN_TYPE = NSType.create("unknown");
+        NSType nodeType = NODE_UNKNOWN_TYPE;
+        public NSType getNodeTypeObj()
+        {
+            return this.nodeType;
+        }
     }
 }

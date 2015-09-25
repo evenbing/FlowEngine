@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlowEngine.NS;
 
 namespace FlowEngine.Flow
 {
@@ -22,11 +23,63 @@ namespace FlowEngine.Flow
             type = TYPE_SEQUENCE;
         }
 
+        private NSService getService(Namespace ns, NSName name)
+        {
+            NSNode svc = ns.getNode(name);
+            if ((svc != null) && (svc.getNodeTypeObj().equals(NSService.TYPE)))
+            {
+                return (NSService)svc;
+            }
+            return null;
+        }
         public new void init(FlowState flowState)
         {
             save_pipeline = IDataUtil.clone(flowState.pipeline);
             start = true;
         }
+        /*protected bool validateMessage(FlowState state, IData pipeline, bool inOpt)
+        {
+            NSService svc = getService(state.getNamespace(), NSName.create(getNSName()));
+
+            int vo = inOpt ? svc.getInputValidatorOptions() : svc.getOutputValidatorOptions();
+            if (vo == 2)
+            {
+                IData val = null;
+
+                NSRecord nsr = inOpt ? svc.getSignature().getInput() : svc.getSignature().getOutput();
+
+                ValidatorOptions vtorOpts = Validator.getDefaultOptions();
+
+                Validator vtor = Validator.create(pipeline, nsr, vtorOpts);
+                boolean valid = false;
+                Exception ex = null;
+                try
+                {
+                    val = vtor.validate();
+                    IDataCursor ic = val.getCursor();
+                    if (ic.first("isValid"))
+                    {
+                        valid = IDataUtil.getBoolean(ic);
+                    }
+                    ic.destroy();
+                }
+                catch (Exception e)
+                {
+                    ex = e;
+                }
+                if ((!valid) || (ex != null))
+                {
+                    Object[] subs = { svc.getNSName().getFullName(), FlowInvoke.getValidationMsgs(val) };
+                    if (ex == null)
+                    {
+                        ex = new FlowException(FlowExceptionBundle.class, inOpt? FlowExceptionBundle.FAILED_INPUT_VALIDATION : FlowExceptionBundle.FAILED_OUTPUT_VALIDATION, "", subs);
+    }
+        handleError(state, ex);
+}
+      return valid;
+    }
+    return true;
+  }*/
 
         public override void invoke(FlowState flowState)
         {
